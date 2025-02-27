@@ -4,7 +4,7 @@ import "qc_assignment/models"
 
 var distributors map[string]*models.Distributor
 
-func init() {
+func init() { // Initialize map to store all the distributors
 	distributors = make(map[string]*models.Distributor)
 }
 
@@ -12,7 +12,7 @@ func CreateDistributor(name string, d *models.Distributor) {
 	distributors[name] = d
 }
 
-func CheckDistributor(parent *models.Distributor, permissions []models.Permission) bool {
+func CheckDistributor(parent *models.Distributor, permissions []models.Permission) bool { // Check if a sub-distributor can be created with the parent distributor.
 	for _, permission := range permissions {
 		action := permission.Action
 		area := permission.Area

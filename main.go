@@ -52,8 +52,9 @@ func main() {
 			distributor := models.CreateNewEmptyDistributor()
 			services.CreateDistributor(name, distributor)
 			distributor.AddPermissions(permissions)
-			fmt.Printf("Distributor %s created.", name)
+			fmt.Printf("Distributor %s created.\n", name)
 		} else if option == 2 {
+			// Check if the primary distributor exists
 			fmt.Println("Enter the name of the primary distributor: ")
 			primaryDistributorName, _ := reader.ReadString('\n')
 			primaryDistributorName = strings.TrimSpace(primaryDistributorName)
@@ -61,6 +62,7 @@ func main() {
 				fmt.Println("Error: Primary Distributor does not exist. Please try again.")
 				continue
 			}
+			// Create secondary distributor
 			fmt.Println("Enter the name of the Secondary Distributor: ")
 			secondaryDistributorName, _ := reader.ReadString('\n')
 			secondaryDistributorName = strings.TrimSpace(secondaryDistributorName)
@@ -90,7 +92,7 @@ func main() {
 			}
 			secondaryDistributor := models.CreateNewEmptyDistributor()
 			secondaryDistributor.AddPermissions(permissions)
-			fmt.Printf("Distributor %s created.", secondaryDistributorName)
+			fmt.Printf("Distributor %s created.\n", secondaryDistributorName)
 		} else {
 			fmt.Println("Invalid option entered. Please try again.")
 		}
